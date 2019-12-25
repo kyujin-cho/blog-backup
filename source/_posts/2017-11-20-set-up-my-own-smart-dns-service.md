@@ -9,7 +9,7 @@ categories: IT
 
 미국 Amazon Prime Video 서비스에는 지역락이 걸려있어서, 미국을 제외한 지역에서는 시청할 수 없다. Netflix, Hulu, 기타 등등 수많은 VOD/Live TV 서비스들 역시 비슷한 방식의 지역락을 걸고 있다.   
 보통 지역락을 걸기 위해서는, 유저가 서비스에 접속할 때 서버에 특정 요청을 보내 유저의 IP가 재생 가능 지역에 속해 있는지 아닌지를 서버가 판단하는 방식을 취한다.    
-![Image](https://github.com/thy2134/thy2134.github.io/blob/master/static/images/DNS_3.png?raw=true)    
+![Image](/images/DNS_3.png?raw=true)    
     
 Amazon Prime Video의 예시. Amazon Prime Video는 `https://atv-ps.amazon.com/cdp/catalog/GetPlaybackResources` 에 POST 요청을 보내서, 영상의 정보와 지역락 여부를 가져온다.    
 이러한 요청을 보내는 과정은 대략 네임서버(혹은 캐시)에서 IP를 땡겨옴->IP에 요청을 보냄->전달받음 인데, Smart DNS 서비스는 이 과정을 파고드는 서비스이다.    
@@ -66,9 +66,9 @@ apt-get update -qq && apt-get install -y haproxy
 14. 영상을 시청할 컴퓨터의 인터넷이 들어오는 NIC의 DNS를 방금 DNSMasq를 설치한 컴퓨터의 IP로 바꿔준다. 로컬에 설치했을 경우에는 127.0.0.1, 아니면 알아서 입력한다. 보조 DNS는 ISP의 DNS를 넣어준다. 넣어주지 않으면 인터넷이 안된다.
 15. DNS Cache를 Flush 후 `nslookup atv-ps.amazon.com` 명령어를 실행하여 Address 부분이 Proxy Server의 IP Addr로 적용되었는지 체크한다.
 
-![Image](https://github.com/thy2134/thy2134.github.io/blob/master/static/images/DNS_1.png?raw=true)    
+![Image](/images/DNS_1.png?raw=true)    
 적용 전 
-![Image](https://github.com/thy2134/thy2134.github.io/blob/master/static/images/DNS_2.png?raw=true)       
+![Image](/images/DNS_2.png?raw=true)       
 적용 후    
 
 영상이 재생된다. 만세!     
